@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.zhenfeng.springserver.service.proto";
+option java_outer_classname = "ProductProtoService";
+
+
+
+service ProductService {
+  rpc GetProduct(GetProductRequest) returns (Product) {};
+  rpc GetAllProducts(Empty) returns (Products) {};
+}
+
+message Empty {}
+
+message GetProductRequest {
+  string id = 1;
+}
+
+message Product {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  float price = 4;
+}
+
+message Products {
+  repeated Product products = 1;
+}
